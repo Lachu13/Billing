@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Orders</title>
+  <link rel="stylesheet" a href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span>Online Orders</span>
+      <div class="subtitle">Dress || Food</div>
+    </div>
+    <nav class="navbar">
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#dress">Dress</a>
+      <a href="#food">Food</a>
+      <a href="#bill">Bill</a>
+      <a href="#contacts">Contact Us</a>
+    </nav>
+    <div class="contact" id="contact">
+      <div class="phone" > +123-456 7899</div>
+      <p><i class="fa-solid fa-phone-volume" style="color:blue;"></i> Contact Us</p>
+    </div>
+  </header>
+  <div class="about" id="about">
+    <img src="SHOP.png">
+  
+ <div class="features">
+  <div class="card">
+    <h3><span class="black">Food</span> <span class="brown">Items</span></h3>
+    <p>Bringing you the finest flavors, delivered to your door. Food delivered with love and a side of cravings.</p>
+  </div>
+
+  <div class="card">
+    <h3><span >Dress</span> <span class="brown">Order</span></h3>
+    <p>Fashion is what you buy, style is what you do with it."
+"Clothes aren't going to change the world, the person who wear them will."</p>
+  </div>
+
+  <div class="card">
+    <h3><span>Low </span> <span class="brown">Costing</span></h3>
+    <p>Wonderful serenity has taken possession of my entire soul, Low Cost...Hight Quality</p>
+  </div>
+</div>
+</div>
+  </div><br><br>
+
+  <div class="dress" id="dress">
+   <br><br><br>
+    <div class="scroll-container">
+  <div class="scroll-content">
+
+    <img src="chudii.webp" alt="shirt">
+    <img src="sareee.webp" alt="saree">
+    <img src="saree2.jpg" alt="saree">
+    <img src="kids wear.webp" alt="kids wear">
+    <img src="kids.jpg">
+    <img src="shirtt.webp" alt="kids wear">
+    <img src="je.webp" alt="jeans">
+<img src="chudii.webp" alt="shirt">
+    <img src="sareee.webp" alt="saree">
+    <img src="sare.jpg" alt="saree">
+    <img src="kids wear.webp" alt="kids wear">
+    <img src="kids.jpg"></div></div></div>
+    <button onclick="billDress()"> <i class="fa-solid fa-cart-shopping"></i> ORDER DRESS</button>
+  
+
+  <div class="food" id="food">
+     <div class="scroll-container2">
+  <div class="scroll-content2">
+    <img src="burger.jpg" alt="burger">
+    <img src="pizza.jpg" alt="pizza">
+    <img src="jigir.jpg" alt="juice">
+    <img src="icec.jpg" alt="ice cream">
+    <img src="brunch.jpg" alt="ice cream">
+    <img src="tac.jpg">
+    <img src="burger.jpg" alt="burger">
+    <img src="pizza.jpg" alt="pizza">
+    <img src="ju.jpg" alt="juice">
+ </div></div></div>
+
+    <button onclick="billFood()"><i class="fa-solid fa-utensils"></i>  ORDER FOOD</button>
+ 
+
+  <div id="bill" class="bill">
+    <h3>Bill Summary:</h3>
+    <div id="billDetails"></div>
+    <p>Total: Rs.<span id="total">0</span></p>
+    <p>Discount Percentage: <span id="discountPercent">0%</span></p>
+   <p>Discount: Rs.<span id="discount">0</span></p>
+<p>Final Total: <span id="finalTotal">0</span></p>
+  </div>
+  
+<div class="contacts" id="contacts">
+  <p class="icons">
+    
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+   <a href="#"><i class="fa-solid fa-envelope"></i></a> 
+    <a href="#"><i class="fa-brands fa-google-plus-g"></i></a>
+    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+    <a href="#"><i class="fa-solid fa-location-dot"></i></a>
+  </p>
+  <p>&copy; 2025 "Online Orders". All rights reserved.</p>
+   <div class="logo">
+      <span>Online Orders</span>
+      <div class="subtitle">Dress || Food</div>
+    </div>
+</div>
+
+
+
+  <script>
+    let total = 0;
+
+    function billDress() {
+      while (true) {
+        let choice = prompt("Dress Items:\nShirt - Rs.500\nSaree - Rs.1000\nKids Wear - Rs.300\nJeans - Rs.800\nType 'exit' to finish\n\nEnter item name:");
+
+        if (!choice || choice.toLowerCase() === "exit") 
+                 break;
+
+        let price = 0;
+        switch (choice.toLowerCase()) {
+          case "shirt": 
+                price=500;
+                break;
+          case "saree": 
+                price=1000; 
+                break;
+          case "kids wear":
+                price=300;
+                break;
+          case "jeans": 
+                price=800;
+                break;
+          default:
+             alert("Invalid item."); 
+             continue;
+        }
+
+        let qty=parseInt(prompt("Enter quantity for: "  +choice));
+            if ( qty <= 0) {
+                alert("Invalid quantity.");
+                continue;
+        }
+
+        let itemTotal = price * qty;
+        total += itemTotal;
+        document.getElementById("billDetails").innerHTML += choice + " x " + qty + " = ₹" + itemTotal + "<br>";
+         updateTotals();
+
+      }
+    }
+
+    function billFood() {
+      while (true) {
+        let choice=prompt("Food Items:\nBurger - Rs.150\nPizza - Rs.300\nJuice - Rs.100\nIce Cream - Rs.120\nType 'exit' to finish\n\nEnter item name:");
+
+        if (!choice || choice.toLowerCase() === "exit") 
+        break;
+
+        let price=0;
+        switch (choice.toLowerCase()) {
+                case "burger": 
+                price=150;
+                 break;
+          case "pizza":
+                price=300;
+                break;
+          case "juice": 
+                price=100; 
+                break;
+          case "ice cream":
+                price=120; 
+                break;
+          default:
+                alert("Invalid item."); 
+                continue;
+        }
+
+        let qty = parseInt(prompt("Enter quantity for: " +choice));
+        if (qty<=0) {
+            alert("Invalid quantity.");
+            continue;
+            }
+        let itemTotal = price * qty;
+        total += itemTotal;
+       document.getElementById("billDetails").innerHTML += choice + " x " + qty + " = ₹" + itemTotal + "<br>";
+       
+       updateTotals();
+
+      }
+    }
+
+  function updateTotals() {
+    let discountRate = 0;
+    if(total>5000){
+        discountRate=0.30
+    }
+    else if(total>4000){
+        discountRate=0.25
+    }
+    else if (total > 3000) {
+        discountRate = 0.20;  
+    } 
+    else if (total > 2000) {
+        discountRate = 0.15;  
+    }
+     else if (total > 1000) {
+        discountRate = 0.10;  
+
+    }
+
+    let discount = total * discountRate;
+    let final = total - discount;
+    let discountPercent = discountRate * 100; 
+
+
+    document.getElementById("total").innerHTML= total;
+    document.getElementById("discountPercent").innerHTML = discountPercent + "%";
+    document.getElementById("discount").innerHTML = discount;
+    document.getElementById("finalTotal").innerHTML = "Rs."+final;
+}
+
+    
+  </script>
+
+</body>
+</html>
